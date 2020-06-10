@@ -17,7 +17,9 @@ const TableBody = (props) => {
     <tr key={index}>
       <td>{row.name}</td>
       <td>{row.job}</td>
-      <td><h1>{index}</h1></td>
+      <td> 
+        <button onClick={()=> props.removePerson(index)}>Remove</button>
+      </td>
     </tr>
     )
   })
@@ -25,16 +27,16 @@ const TableBody = (props) => {
 }
 
 
-class Table extends Component {
+const Table = (props) => {
 
-  render(){
-    const {cdata} = this.props
+ 
+    const {cdata, removePerson} = props
     return(
       <table>
       <TableHeader />
-      <TableBody cdata = {cdata}/>
+      <TableBody cdata = {cdata} removePerson={removePerson}/>
       </table>
     )
-  }
+  
 }
 export default Table
